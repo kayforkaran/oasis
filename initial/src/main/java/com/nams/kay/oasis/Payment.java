@@ -9,8 +9,8 @@ public class Payment {
     private Integer customerId;
     private String creditCardNumber;
     private BookingType bookingType;
-    private Integer totalAmount;
-    private Integer paidAmount;
+    private float totalAmount;
+    private float paidAmount;
 
     public Integer getId() {
         return id;
@@ -44,19 +44,19 @@ public class Payment {
         this.bookingType = bookingType;
     }
 
-    public Integer getTotalAmount() {
+    public float getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(Integer totalAmount) {
+    public void setTotalAmount(float totalAmount) {
         this.totalAmount = totalAmount;
     }
 
-    public Integer getPaidAmount() {
+    public float getPaidAmount() {
         return paidAmount;
     }
 
-    public void setPaidAmount(Integer paidAmount) {
+    public void setPaidAmount(float paidAmount) {
         this.paidAmount = paidAmount;
     }
 }

@@ -1,21 +1,20 @@
 package com.nams.kay.oasis;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 @Entity
 public class Booking {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
+
     private Integer customerId;
     private BookingType bookingType;
-    @Temporal(TemporalType.DATE)
-    private Date dateOfBooking;
-//    @Temporal(TemporalType.DATE)
-    private Date checkinDate;
-    @Temporal(TemporalType.DATE)
-    private Date checkoutDate;
-
+    public static float roomCost;
+    private LocalDate dateOfBooking;
+    private LocalDate checkinDate;
+    private LocalDate checkoutDate;
     private Integer paymentId;
     private Integer numberOfRooms;
 
@@ -25,6 +24,14 @@ public class Booking {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public static float getRoomCost() {
+        return roomCost;
+    }
+
+    public static void setRoomCost(float roomCost) {
+        Booking.roomCost = roomCost;
     }
 
     public Integer getCustomerId() {
@@ -43,27 +50,27 @@ public class Booking {
         this.bookingType = bookingType;
     }
 
-    public Date getDateOfBooking() {
+    public LocalDate getDateOfBooking() {
         return dateOfBooking;
     }
 
-    public void setDateOfBooking(Date dateOfBooking) {
+    public void setDateOfBooking(LocalDate dateOfBooking) {
         this.dateOfBooking = dateOfBooking;
     }
 
-    public Date getCheckinDate() {
+    public LocalDate getCheckinDate() {
         return checkinDate;
     }
 
-    public void setCheckinDate(Date checkinDate) {
+    public void setCheckinDate(LocalDate checkinDate) {
         this.checkinDate = checkinDate;
     }
 
-    public Date getCheckoutDate() {
+    public LocalDate getCheckoutDate() {
         return checkoutDate;
     }
 
-    public void setCheckoutDate(Date checkoutDate) {
+    public void setCheckoutDate(LocalDate checkoutDate) {
         this.checkoutDate = checkoutDate;
     }
 

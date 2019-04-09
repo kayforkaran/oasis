@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.nams.kay.oasis.RoomBooking;
 import com.nams.kay.oasis.RoomBookingRepository;
 
+import javax.persistence.TemporalType;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -21,12 +24,10 @@ public class RoomBookingController {
     @Autowired
     private RoomBookingRepository roomBookingRepository;
 
-    @GetMapping("/new")
-    public @ResponseBody String bookNewRoom(@RequestParam Integer roomNumber){
-        Booking booking = new Booking();
-        booking.setBookingType(BookingType.CONVENTIONAL);
-        Date checkinDate, checkoutDate, bookingDate;
-//        booking.setCheckinDate();
-        return "OK";
+
+
+    @GetMapping("/all")
+    public @ResponseBody Iterable<RoomBooking> getAllRoomBookings(){
+        return roomBookingRepository.findAll();
     }
 }
